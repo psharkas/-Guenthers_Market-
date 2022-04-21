@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -71,6 +72,11 @@ public class Market {
 			}
 		}while(cont);
 		
+		System.out.println("The highest cost item is at index " + (highestCost(pricing)));
+		System.out.println("The lowest cost item is at index " + (lowestCost(pricing)));
+		
+		scnr.close();
+		
 	}
 	
 	public static double getAverage(ArrayList<Double> pricing) {
@@ -79,6 +85,17 @@ public class Market {
 			sum += num;
 		}
 		return (sum/pricing.size());
+	}
+	
+	public static int highestCost(ArrayList<Double> pricing) {
+		Double max = Collections.max(pricing);
+		int highestIndex = pricing.indexOf(max);
+		return highestIndex;
+	}
+	public static int lowestCost(ArrayList<Double> pricing) {
+		Double min = Collections.min(pricing);
+		int lowestIndex = pricing.indexOf(min);
+		return lowestIndex;
 	}
 
 }
